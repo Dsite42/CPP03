@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/09 12:08:09 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:08:30 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 	this->set_hit_points(100);
 	this->set_energy_points(50);
 	this->set_attack_damage(20);
+	this->_is_guardgate = false;
 }
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
@@ -27,6 +28,7 @@ ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 	this->set_hit_points(100);
 	this->set_energy_points(50);
 	this->set_attack_damage(20);
+	this->_is_guardgate = false;
 }
 
 ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
@@ -42,6 +44,7 @@ ScavTrap &ScavTrap::operator = (const ScavTrap &other)
 	this->set_hit_points(other.get_hit_points());
 	this->set_energy_points(other.get_energy_points());
 	this->set_attack_damage(other.get_attack_damage());
+	this->_is_guardgate = other._is_guardgate;
 	return (*this);
 }
 
@@ -92,5 +95,15 @@ void ScavTrap::beRepaired(unsigned int amount)
 
 void ScavTrap::guardGate(void)
 {
+	if (this->_is_guardgate == false)
+	{
 		std::cout << "ScavTrap is now in Gate keeper mode" << std::endl;
+		this->_is_guardgate = true;
+	}
+	else
+	{
+		std::cout << "ScavTrap is not anymore in Gate keeper mode" << std::endl;
+		this->_is_guardgate = false;
+	}
+
 }

@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:42:04 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/09 12:17:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/09 15:11:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int main(void)
 	ScavTrap tom("Tom");
 	
 	std::cout << "\033[33m" << std::endl << "Tests for ScavTrap functions" << "\033[0m" << std::endl;
+	tom.guardGate();
 	tom.guardGate();
 	tom.attack("a car");
 	std::cout << tom.get_name() << " has " << tom.get_hit_points() << " hit points and " << tom.get_energy_points() << " energy points left" << std::endl;
