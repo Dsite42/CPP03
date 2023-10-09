@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:42:59 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/07 17:33:07 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/09 12:19:58 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ class ClapTrap
 
 	public:
 		// constructors
+		ClapTrap();
 		ClapTrap(std::string name);
 		ClapTrap(const ClapTrap &other);
 		ClapTrap &operator=(const ClapTrap &other);
