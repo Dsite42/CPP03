@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:46:02 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 11:45:00 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:20:06 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void FragTrap::takeDamage(unsigned int amount)
 	{
 		std::cout << "FragTrap: " << this->get_name() << " took " << amount << " points of damage!" << std::endl;
 		
-		if (this->get_hit_points() - amount < 0)
+		if (amount > this->get_hit_points())
 			this->set_hit_points(0);
 		else
 			this->set_hit_points(this->get_hit_points() - amount);
