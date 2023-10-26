@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/09 15:08:30 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:44:45 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,10 @@ void ScavTrap::takeDamage(unsigned int amount)
 	else
 	{
 		std::cout << "ScavTrap: " << this->get_name() << " took " << amount << " points of damage!" << std::endl;
-		
-		this->set_hit_points(this->get_hit_points() - amount);
+		if (this->get_hit_points() - amount < 0)
+			this->set_hit_points(0);
+		else
+			this->set_hit_points(this->get_hit_points() - amount);
 	}
 }
 

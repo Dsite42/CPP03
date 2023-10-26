@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:44:13 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/09 12:20:31 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 11:41:22 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ ClapTrap::ClapTrap(const ClapTrap &other) :  _name(other._name), _hit_points(oth
 	std::cout << "Copy constructor called\n";
 }
 
-ClapTrap &ClapTrap::operator = (const ClapTrap &other)
+ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 {
 	std::cout << "Copy assignment constructor called\n";
 	this->_name = other._name;
@@ -51,7 +51,7 @@ void ClapTrap::attack(const std::string &target)
 		std::cout << this->_name << " is already dead and can not attack someone." << std::endl;
 	else if (this->_energy_points > 0)
 	{
-		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing <damage> points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << _attack_damage << " points of damage!" << std::endl;
 		this->_energy_points -= 1;
 	}
 	else
@@ -65,7 +65,10 @@ void ClapTrap::takeDamage(unsigned int amount)
 	else
 	{
 		std::cout << "ClapTrap " << this->_name << " took " << amount << " points of damage!" << std::endl;
-		this->_hit_points -= amount;
+		if (this->_hit_points - amount < 0)
+			this->_hit_points = 0;
+		else
+			this->_hit_points -= amount;
 	}
 }
 
@@ -83,7 +86,6 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "Not enough energy points for being repaired" << std::endl;
 }
 
-// additional member functions
 int ClapTrap::get_hit_points()
 {
 	return (this->_hit_points);
