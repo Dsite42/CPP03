@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:46:02 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:20:06 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:41:11 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ FragTrap::~FragTrap()
 // member functions
 void FragTrap::attack(const std::string &target)
 {
-	if (this->get_hit_points() < 0)
+	if (this->get_hit_points() == 0)
 		std::cout << "FragTrap: " << this->get_name() << " is already dead and can not attack someone." << std::endl;
 	else if (this->get_energy_points() > 0)
 	{
@@ -66,7 +66,7 @@ void FragTrap::attack(const std::string &target)
 
 void FragTrap::takeDamage(unsigned int amount)
 {
-	if (this->get_hit_points() < 0 && amount != 0)
+	if (this->get_hit_points() == 0 && amount != 0)
 		std::cout << "FragTrap: " << this->get_name() << " is already dead and can not be more demaged." << std::endl;
 	else
 	{
@@ -81,7 +81,7 @@ void FragTrap::takeDamage(unsigned int amount)
 
 void FragTrap::beRepaired(unsigned int amount)
 {
-	if (this->get_hit_points() < 0)
+	if (this->get_hit_points() == 0)
 		std::cout << "FragTrap: " << this->get_name() << " is already dead and can not be rapaired." << std::endl;
 	else if (this->get_energy_points() > 0)
 	{

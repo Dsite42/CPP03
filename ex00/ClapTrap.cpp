@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:44:13 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:17:14 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:29:13 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap::~ClapTrap()
 // member functions
 void ClapTrap::attack(const std::string &target)
 {
-	if (this->_hit_points < 0)
+	if (this->_hit_points == 0)
 		std::cout << this->_name << " is already dead and can not attack someone." << std::endl;
 	else if (this->_energy_points > 0)
 	{
@@ -60,7 +60,7 @@ void ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hit_points < 0 && amount != 0)
+	if (this->_hit_points == 0 && amount != 0)
 		std::cout << this->_name << " is already dead and can not be more demaged." << std::endl;
 	else
 	{
@@ -74,7 +74,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hit_points < 0)
+	if (this->_hit_points == 0)
 		std::cout << this->_name << " is already dead and can not be rapaired." << std::endl;
 	else if (this->_energy_points > 0)
 	{

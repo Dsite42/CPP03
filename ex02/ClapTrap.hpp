@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:42:59 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:21:09 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:35:14 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ class ClapTrap
 		void beRepaired(unsigned int amount);
 		
 		// additional member functions
-		int get_hit_points() const ;
-		void set_hit_points(int number);
-		int get_energy_points() const;
-		void set_energy_points(int number);
+		unsigned int get_hit_points() const ;
+		void set_hit_points(unsigned int number);
+		unsigned int get_energy_points() const;
+		void set_energy_points(unsigned int number);
 		std::string get_name() const;
 		void set_name(std::string name);
-		int get_attack_damage() const;
-		void set_attack_damage(int number);
+		unsigned int get_attack_damage() const;
+		void set_attack_damage(unsigned int number);
 
 };
 

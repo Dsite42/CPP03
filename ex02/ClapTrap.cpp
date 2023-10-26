@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 14:44:13 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:19:38 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:40:31 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ ClapTrap::~ClapTrap()
 // member functions
 void ClapTrap::attack(const std::string &target)
 {
-	if (this->_hit_points < 0)
+	if (this->_hit_points == 0)
 		std::cout << this->_name << " is already dead and can not attack someone." << std::endl;
 	else if (this->_energy_points > 0)
 	{
@@ -60,7 +60,7 @@ void ClapTrap::attack(const std::string &target)
 
 void ClapTrap::takeDamage(unsigned int amount)
 {
-	if (this->_hit_points < 0 && amount != 0)
+	if (this->_hit_points == 0 && amount != 0)
 		std::cout << this->_name << " is already dead and can not be more demaged." << std::endl;
 	else
 	{
@@ -74,7 +74,7 @@ void ClapTrap::takeDamage(unsigned int amount)
 
 void ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_hit_points < 0)
+	if (this->_hit_points == 0)
 		std::cout << this->_name << " is already dead and can not be rapaired." << std::endl;
 	else if (this->_energy_points > 0)
 	{
@@ -87,22 +87,22 @@ void ClapTrap::beRepaired(unsigned int amount)
 }
 
 // additional member functions
-int ClapTrap::get_hit_points() const
+unsigned int ClapTrap::get_hit_points() const
 {
 	return (this->_hit_points);
 }
 
-void ClapTrap::set_hit_points(int number)
+void ClapTrap::set_hit_points(unsigned int number)
 {
 	this->_hit_points = number;
 }
 
-int ClapTrap::get_energy_points() const
+unsigned int ClapTrap::get_energy_points() const
 {
 	return (this->_energy_points);
 }
 
-void ClapTrap::set_energy_points(int number)
+void ClapTrap::set_energy_points(unsigned int number)
 {
 	this->_energy_points = number;
 }
@@ -117,12 +117,12 @@ void ClapTrap::set_name(std::string name)
 	this->_name = name;
 }
 
-int ClapTrap::get_attack_damage() const
+unsigned int ClapTrap::get_attack_damage() const
 {
 	return (this->_attack_damage);
 }
 
-void ClapTrap::set_attack_damage(int number)
+void ClapTrap::set_attack_damage(unsigned int number)
 {
 	this->_attack_damage = number;
 }

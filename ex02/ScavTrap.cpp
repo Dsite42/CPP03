@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:19:19 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/26 13:38:39 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ ScavTrap::~ScavTrap()
 // member functions
 void ScavTrap::attack(const std::string &target)
 {
-	if (this->get_hit_points() < 0)
+	if (this->get_hit_points() == 0)
 		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not attack someone." << std::endl;
 	else if (this->get_energy_points() > 0)
 	{
@@ -69,7 +69,7 @@ void ScavTrap::attack(const std::string &target)
 
 void ScavTrap::takeDamage(unsigned int amount)
 {
-	if (this->get_hit_points() < 0 && amount != 0)
+	if (this->get_hit_points() == 0 && amount != 0)
 		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not be more demaged." << std::endl;
 	else
 	{
@@ -83,7 +83,7 @@ void ScavTrap::takeDamage(unsigned int amount)
 
 void ScavTrap::beRepaired(unsigned int amount)
 {
-	if (this->get_hit_points() < 0)
+	if (this->get_hit_points() == 0)
 		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not be rapaired." << std::endl;
 	else if (this->get_energy_points() > 0)
 	{
