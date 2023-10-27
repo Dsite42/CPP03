@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/27 11:27:53 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:37:44 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,18 @@
 ScavTrap::ScavTrap() : ClapTrap()
 {
 	std::cout << "ScavTrap: Default constructor called\n";
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_damage(20);
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
 	this->_is_guardgate = false;
 }
 
 ScavTrap::ScavTrap(const std::string name) : ClapTrap(name)
 {
 	std::cout << "ScavTrap: Name constructor called\n";
-	this->set_hit_points(100);
-	this->set_energy_points(50);
-	this->set_attack_damage(20);
+	this->_hit_points = 100;
+	this->_energy_points = 50;
+	this->_attack_damage = 20;
 	this->_is_guardgate = false;
 }
 
@@ -36,14 +36,14 @@ ScavTrap::ScavTrap(const ScavTrap &other) : ClapTrap(other)
 	std::cout << "ScavTrap: Copy constructor called\n";
 }
 
-ScavTrap &ScavTrap::operator = (const ScavTrap &other)
+ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 {
 	
 	std::cout << "ScavTrap: Copy assignment constructor called\n";
-	this->set_name(other.get_name());
-	this->set_hit_points(other.get_hit_points());
-	this->set_energy_points(other.get_energy_points());
-	this->set_attack_damage(other.get_attack_damage());
+	this->_name = other._name;
+	this->_hit_points = other._hit_points;
+	this->_energy_points = other._energy_points;
+	this->_attack_damage = other._attack_damage;
 	this->_is_guardgate = other._is_guardgate;
 	return (*this);
 }
@@ -56,12 +56,12 @@ ScavTrap::~ScavTrap()
 // member functions
 void ScavTrap::attack(const std::string &target)
 {
-	if (this->get_hit_points() == 0)
-		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not attack someone." << std::endl;
-	else if (this->get_energy_points() > 0)
+	if (this->_hit_points == 0)
+		std::cout << "ScavTrap: " << this->_name << " is already dead and can not attack someone." << std::endl;
+	else if (this->_energy_points > 0)
 	{
-		std::cout << "ScavTrap: " << this->get_name() << " attacks " << target << ", causing <damage> points of damage!" << std::endl;
-		this->set_energy_points(get_energy_points() - 1);
+		std::cout << "ScavTrap: " << this->_name << " attacks " << target << ", causing <damage> points of damage!" << std::endl;
+		this->_energy_points -= 1;
 	}
 	else
 		std::cout << "ScavTrap: Not enough energy points for attack" << std::endl;
@@ -79,5 +79,4 @@ void ScavTrap::guardGate(void)
 		std::cout << "ScavTrap is not anymore in Gate keeper mode" << std::endl;
 		this->_is_guardgate = false;
 	}
-
 }
