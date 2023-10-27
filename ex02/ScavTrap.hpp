@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:31:28 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/27 11:53:08 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:39:10 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,8 +31,6 @@ class ScavTrap : public ClapTrap
 
 		// member functions
 		void attack(const std::string &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void guardGate(void);
 };
 
