@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 11:32:12 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/26 13:39:45 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/27 11:27:53 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,34 +65,6 @@ void ScavTrap::attack(const std::string &target)
 	}
 	else
 		std::cout << "ScavTrap: Not enough energy points for attack" << std::endl;
-}
-
-void ScavTrap::takeDamage(unsigned int amount)
-{
-	if (this->get_hit_points() == 0 && amount != 0)
-		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not be more demaged." << std::endl;
-	else
-	{
-		std::cout << "ScavTrap: " << this->get_name() << " took " << amount << " points of damage!" << std::endl;
-		if (amount > this->get_hit_points())
-			this->set_hit_points(0);
-		else
-			this->set_hit_points(this->get_hit_points() - amount);
-	}
-}
-
-void ScavTrap::beRepaired(unsigned int amount)
-{
-	if (this->get_hit_points() == 0)
-		std::cout << "ScavTrap: " << this->get_name() << " is already dead and can not be rapaired." << std::endl;
-	else if (this->get_energy_points() > 0)
-	{
-		std::cout << "ScavTrap: " << this->get_name() << " got " << amount << " points of hit points!" << std::endl;
-		this->set_hit_points(get_hit_points() + amount);
-		this->set_energy_points(get_energy_points() - 1);
-	}
-	else
-		std::cout << "ScavTrap: "<< "Not enough energy points for being repaired" << std::endl;
 }
 
 void ScavTrap::guardGate(void)
