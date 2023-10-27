@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:47:50 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/27 11:53:01 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/27 13:46:08 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,6 @@ class FragTrap : public ClapTrap
 		~FragTrap();
 
 		// member functions
-		void attack(const std::string &target);
-		void takeDamage(unsigned int amount);
-		void beRepaired(unsigned int amount);
 		void highFivesGuys(void);
 };
 
