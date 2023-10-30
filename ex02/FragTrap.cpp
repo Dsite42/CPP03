@@ -6,7 +6,7 @@
 /*   By: cgodecke <cgodecke@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 14:46:02 by cgodecke          #+#    #+#             */
-/*   Updated: 2023/10/27 15:56:05 by cgodecke         ###   ########.fr       */
+/*   Updated: 2023/10/30 11:01:39 by cgodecke         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,12 +53,12 @@ FragTrap::~FragTrap()
 // member functions
 void FragTrap::attack(const std::string &target)
 {
-	if (this->get_hit_points() == 0)
-		std::cout << "FragTrap: " << this->get_name() << " is already dead and can not attack someone." << std::endl;
-	else if (this->get_energy_points() > 0)
+	if (this->_hit_points == 0)
+		std::cout << "FragTrap: " << this->_name << " is already dead and can not attack someone." << std::endl;
+	else if (this->_energy_points > 0)
 	{
-		std::cout << "FragTrap: " << this->get_name() << " attacks " << target << ", causing <damage> points of damage!" << std::endl;
-		this->set_energy_points(get_energy_points() - 1);
+		std::cout << "FragTrap " << this->_name << " attacks " << target << ", causing " << this->_attack_damage << " points of damage!" << std::endl;
+		this->_energy_points -= 1;
 	}
 	else
 		std::cout << "FragTrap: Not enough energy points for attack" << std::endl;
